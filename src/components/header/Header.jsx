@@ -5,7 +5,7 @@ export default class componentName extends Component {
   render() {
     return (
       <Fragment>
-        <header id="home">
+        <header>
           <NavBar />
           <div className="row banner">
             <div className="banner-text">
@@ -15,9 +15,8 @@ export default class componentName extends Component {
               <h1 className="responsive-headline">Brian Eichenberger</h1>
               <h3>
                 <span>Full Stack Web Developer.</span> Musician. Life long
-                learner. Singer. Creative <span>Problem Solver</span>. Tinkerer.
+                learner. Singer. Creative <span>Problem Solver</span>.
               </h3>
-              <h3>I love to build things.</h3>
               <hr />
               <ul className="social">
                 {technologies.map(obj => (

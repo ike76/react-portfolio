@@ -1,25 +1,51 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "semantic-ui-react";
 import { sections } from "../../GeneralConfig/index";
+import { WaypointContext } from "../../App";
+
+const NavLink = styled.li`
+  display: inline-block;
+  // border: 1px white solid;
+  padding: 3px 13px;
+  line-height: 32px;
+  text-decoration: none;
+  text-align: left;
+  color: salmon;
+  transition: color 0.2s ease-in-out;
+`;
+const Astyled = styled.a`
+  color: ${p => (p.active ? "salmon" : "white")} !important;
+`;
+const NavBarStyled = styled.nav`
+  position: fixed;
+  top: 0px;
+  width: 100%;
+
+  z-index: 10000;
+`;
 const NavBar = () => {
   return (
-    <nav id="nav-wrap">
-      <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
-        Show navigation
-      </a>
-      <a className="mobile-btn" href="#" title="Hide navigation">
-        Hide navigation
-      </a>
-      <ul id="nav" className="nav">
-        {sections.map(section => (
-          <li key={section.link}>
-            <a className="smoothscroll" href={section.link}>
-              {section.text}
-            </a>
-          </li>
-        ))}
-      </ul>{" "}
-    </nav>
+    <WaypointContext.Consumer>
+      {({ currentSection }) => {
+        return (
+          <NavBarStyled>
+            <ul>
+              {sections.map(section => (
+                <NavLink key={section.link}>
+                  <Astyled
+                    active={section.link.slice(1) === currentSection}
+                    href={section.link}
+                  >
+                    {section.text}
+                  </Astyled>
+                </NavLink>
+              ))}
+            </ul>
+          </NavBarStyled>
+        );
+      }}
+    </WaypointContext.Consumer>
   );
 };
 
