@@ -1,20 +1,18 @@
 import React, { Component, Fragment, createContext } from "react";
-import Waypoint from "react-waypoint";
+import { ParallaxProvider } from "react-scroll-parallax";
 import About from "./components/about/About.jsx";
 import Contact from "./components/contact/Contact.jsx";
 import Header from "./components/header/Header.jsx";
-import Portfolio from "./components/portfolio/Portfolio.jsx";
+import Portfolio from "./components/projects/Portfolio.jsx";
 import Resume from "./components/resume/Resume.jsx";
 import Modal from "./components/modals/Modal.jsx";
-import Footer from "./components/footer/Footer.jsx";
-import Testimonials from "./components/testimonials/Testimonials.jsx";
-import { sections } from "./GeneralConfig/index";
 import Section from "./components/Section.jsx";
-
+import BrianCrowd from "./images/brianCrowd1000.jpg";
 export const WaypointContext = createContext();
+
 class App extends Component {
   state = {
-    modal: null,
+    modal: "",
     waypoint: null,
     wpArray: []
   };
@@ -31,40 +29,63 @@ class App extends Component {
       waypoint: newWpArray[0]
     });
   };
+  sections = ["header", "about", "resume", "portfolio", "contact"];
   render() {
     return (
       <div className="App">
-        <WaypointContext.Provider
-          value={{
-            wpEnter: this.handleWaypointEnter,
-            wpExit: this.handleWaypointExit,
-            currentSection: this.state.waypoint
-          }}
-        >
-          <Fragment>
-            <Modal
-              content={this.state.modal}
-              onClose={() => this.setState({ modal: null })}
-            />
+        <ParallaxProvider>
+          <WaypointContext.Provider
+            value={{
+              wpEnter: this.handleWaypointEnter,
+              wpExit: this.handleWaypointExit,
+              currentSection: this.state.waypoint,
+              setModal: this.handleSetModal
+            }}
+          >
+            <Fragment>
+              <Modal
+                content={this.state.modal}
+                onClose={() => this.setState({ modal: null })}
+              />
 
-            <Section color="#161415" name="header">
-              <Header />
-            </Section>
-            <Section color="lightblue" name="about">
-              <About />
-            </Section>
-            <Section color="black" name="resume">
-              <Resume />
-            </Section>
-            <Section color="grey" name="portfolio">
-              <Portfolio handleModal={this.handleSetModal} />
-            </Section>
-            <Section color="black" name="contact">
-              <Contact />
-            </Section>
-            <Footer />
-          </Fragment>
-        </WaypointContext.Provider>
+              <Section
+                bgColor="#161415"
+                bgImage={BrianCrowd}
+                name="header"
+                inverted
+                sections={this.sections}
+              >
+                <Header />
+              </Section>
+              <Section
+                bgColor="#2b2b2b"
+                name="about"
+                inverted
+                sections={this.sections}
+              >
+                <About handleModal={this.handleSetModal} />
+              </Section>
+              <Section bgColor="#f6f6f6" name="resume" sections={this.sections}>
+                <Resume />
+              </Section>
+              <Section
+                bgColor="#e6e6e6"
+                name="portfolio"
+                sections={this.sections}
+              >
+                <Portfolio handleModal={this.handleSetModal} />
+              </Section>
+              <Section
+                bgColor="#2b2b2b"
+                inverted
+                name="contact"
+                sections={this.sections}
+              >
+                <Contact />
+              </Section>
+            </Fragment>
+          </WaypointContext.Provider>
+        </ParallaxProvider>
       </div>
     );
   }

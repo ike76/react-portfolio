@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Image, Popup } from "semantic-ui-react";
-import UTLAlbumCover from "../../images/UTLalbumcover.jpg";
 
 const RowItem = styled.div`
   margin-bottom: 1rem;

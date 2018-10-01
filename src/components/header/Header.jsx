@@ -1,21 +1,52 @@
 import React, { Component, Fragment } from "react";
 import { Popup } from "semantic-ui-react";
+import ReactFitText from "react-fittext";
+
+import styled from "styled-components";
 import NavBar from "./NavBar";
-export default class componentName extends Component {
+
+const HeaderCenter = styled.header`
+  height: calc(100vh - 20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const ResponsiveHeadline = styled.h1`
+  font-size: 61px;
+  width: 100%;
+  font-family: "Open Sans", sans;
+  color: white;
+  font-weight: 600;
+`;
+const HeaderList = styled.ul`
+  list-style: none;
+  & li {
+    font-family: "Libre Baskerville", serif;
+    font-size: 21px;
+  }
+  & .highlight {
+    color: #7cc8ff;
+  }
+`;
+export default class Header extends Component {
   render() {
     return (
       <Fragment>
-        <header>
+        <HeaderCenter>
           <NavBar />
           <div className="row banner">
             <div className="banner-text">
+              <ReactFitText>
+                <ResponsiveHeadline>Brian Eichenberger</ResponsiveHeadline>
+              </ReactFitText>
               <h3>
-                <span>Hi.</span> I'm
-              </h3>
-              <h1 className="responsive-headline">Brian Eichenberger</h1>
-              <h3>
-                <span>Full Stack Web Developer.</span> Musician. Life long
-                learner. Singer. Creative <span>Problem Solver</span>.
+                <HeaderList>
+                  <li className="highlight">Full Stack Web Developer.</li>
+                  <li>Musician</li>
+                  <li>Life long learner</li>
+                  <li>Singer</li>
+                  <li className="highlight">Creative Problem Solver</li>
+                </HeaderList>
               </h3>
               <hr />
               <ul className="social">
@@ -40,17 +71,11 @@ export default class componentName extends Component {
               </ul>
             </div>
           </div>
-          <p className="scrolldown">
-            <a className="smoothscroll" href="#about">
-              <i className="icon-down-circle" />
-            </a>
-          </p>
-        </header>
+        </HeaderCenter>
       </Fragment>
     );
   }
 }
-
 const technologies = [
   { deviconText: "html5-plain-wordmark", description: "HTML" },
   { deviconText: "css3-plain-wordmark", description: "CSS" },

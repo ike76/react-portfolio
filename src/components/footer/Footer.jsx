@@ -1,10 +1,33 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import { Icon } from "semantic-ui-react";
+import { scrollTo } from "../header/NavBar.jsx";
 
+const ScrollUpDiv = styled.div`
+  width: 100%;
+  text-align: center;
+  // padding: 2rem;
+  & i {
+    color: #afafaf;
+    transition: 0.5s all;
+    cursor: pointer;
+    &:hover {
+      color: #11abb0;
+    }
+  }
+`;
 export default class Footer extends Component {
   render() {
     return (
       <footer>
-        <div className="row">
+        <ScrollUpDiv>
+          <Icon
+            name="chevron circle up"
+            size="big"
+            onClick={() => scrollTo("header")}
+          />
+        </ScrollUpDiv>
+        {/* <div className="row">
           <div className="twelve columns">
             <ul className="social-links">
               <li>
@@ -44,12 +67,7 @@ export default class Footer extends Component {
               </li>
             </ul>
           </div>
-          <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
-              <i className="icon-up-open" />
-            </a>
-          </div>
-        </div>
+        </div> */}
       </footer>
     );
   }

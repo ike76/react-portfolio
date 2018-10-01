@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Modal } from "semantic-ui-react";
 import TwelveScales from "../projects/TwelveScales.jsx";
-
+import HomeComp from "../projects/HomeComp.jsx";
+import TripSync from "../projects/TripSync.jsx";
+import FlightSync from "../projects/FlightSync.jsx";
 const modalManager = {
   "12 Scales": <TwelveScales />,
-  HomeComp: "homecomp goes here",
-  TripSync: "tripsync goes here",
-  FlightSync: "flightsync goes here"
+  HomeComp: <HomeComp />,
+  TripSync: <TripSync />,
+  FlightSync: <FlightSync />
 };
 
 class ModalContainer extends Component {

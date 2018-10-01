@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Card, Image, Reveal, Icon } from "semantic-ui-react";
-import coffee from "../../images/portfolio/coffee.jpg";
-import piano from "../../images/piano.jpg";
-import house from "../../images/house.jpg";
-import taxis from "../../images/taxis.jpg";
-import airplanes from "../../images/airplanes.jpg";
+import { Icon } from "semantic-ui-react";
+import piano from "./projectImages/piano.jpg";
+import house from "./projectImages/house.jpg";
+import airplanes from "./projectImages/airplanes.jpg";
+import bizTravelers from "../../images/bizTravelers.jpg";
 const ProjectGrid = styled.div`
   margin: 1rem auto;
   justify-items: center;
@@ -66,7 +65,7 @@ export default class Portfolio extends Component {
   );
   render() {
     return (
-      <section id="portfolio">
+      <section>
         <h1>Projects</h1>
         <ProjectGrid>
           <this.Project
@@ -81,7 +80,7 @@ export default class Portfolio extends Component {
             attributes."
           />
           <this.Project
-            img={taxis}
+            img={bizTravelers}
             header="TripSync"
             description={
               <div>
