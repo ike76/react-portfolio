@@ -15,7 +15,7 @@ class ModalContainer extends Component {
   render() {
     const { content, onClose } = this.props;
     return (
-      <Modal open={content} onClose={onClose}>
+      <Modal open={!!content} onClose={onClose}>
         <Modal.Content>{modalManager[content]}</Modal.Content>
       </Modal>
     );

@@ -59,7 +59,7 @@ export default class Portfolio extends Component {
       <ProjectText>
         <ProjectH1>{header}</ProjectH1>
         <Icon name="plus" size="big" />
-        <p>{description}</p>
+        <div>{description}</div>
       </ProjectText>
     </ProjectBox>
   );

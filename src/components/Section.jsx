@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Icon, Container } from "semantic-ui-react";
-import { Parallax } from "react-scroll-parallax";
 import { Element } from "react-scroll";
 import Waypoint from "react-waypoint";
 import styled from "styled-components";

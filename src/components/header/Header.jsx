@@ -42,8 +42,8 @@ export default class Header extends Component {
               <h3>
                 <HeaderList>
                   <li className="highlight">Full Stack Web Developer.</li>
-                  <li>Musician</li>
-                  <li>Life long learner</li>
+                  <li>Designer</li>
+                  <li>Life Long Learner</li>
                   <li>Singer</li>
                   <li className="highlight">Creative Problem Solver</li>
                 </HeaderList>
@@ -51,7 +51,7 @@ export default class Header extends Component {
               <hr />
               <ul className="social">
                 {technologies.map(obj => (
-                  <li>
+                  <li key={obj.deviconText}>
                     <Popup
                       key={obj.deviconText}
                       trigger={
