@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { WaypointContext } from "../App";
 import { scrollTo } from "./header/NavBar.jsx";
 import BrianCrowd from "../images/brianCrowd1000.jpg";
+import wallBG from "../images/wallBG.jpg";
 const regularStyles = `
   color: #202020;
 `;
@@ -22,11 +23,22 @@ background-repeat: no-repeat;
 }
 `;
 
+const wallBackground = `
+background: radial-gradient(#ffffff36,#ffffffd1), url(${wallBG});
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+@media (min-width: 600px) {
+  background-attachment: fixed;
+}
+`;
+
 const SectionBox = styled.div`
   position: relative;
   background: ${p => p.bgColor};
   ${p => (p.inverted ? invertedStyles : regularStyles)} position: relative;
   ${p => (p.id === "header" ? concertBackground : "")};
+  ${p => (p.id === "resume" ? wallBackground : "")};
   height: ${p => `${p.windowHeight}px` || ""};
   padding: 4rem 10px 5rem;
   & h1,
