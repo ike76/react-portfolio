@@ -16,7 +16,7 @@ const HeaderCenter = styled.header`
   justify-items: center;
 `;
 const ResponsiveHeadline = styled.h2`
-  font-size: 61px;
+  font-size: 48px;
   text-align: center;
   color: red;
   width: 100%;
