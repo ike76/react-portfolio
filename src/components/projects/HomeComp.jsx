@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import ProjectDescription from "./ProjectDescription.jsx";
+import { SkillsList } from "./Portfolio.jsx";
 import HomeCompPic from "./projectImages/homecomp_header.png";
 const HomeComp = () => {
   return (
@@ -28,6 +29,22 @@ const HomeComp = () => {
               <em>best kitchen, nicest neighborhood, etc</em>.
             </li>
           </ul>
+          <h4>Skills:</h4>
+          <SkillsList>
+            <li>
+              <i className="devicon-react-original colored" />
+              <b>React</b> front end
+            </li>
+            <li>
+              <i className="devicon-express-original colored" />
+              <b>Express</b> server
+            </li>
+            <li>
+              <i className="devicon-mongodb-plain colored" />
+              <b>MongoDB</b> database
+            </li>
+          </SkillsList>
+
           <h4>Challenges:</h4>
           <ul>
             <li>

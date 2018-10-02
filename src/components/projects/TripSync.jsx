@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ProjectDescription from "./ProjectDescription.jsx";
 import TripSyncScreenshot from "../../images/TripSyncScreenshot.jpg";
-
+import { SkillsList } from "./Portfolio.jsx";
 const TripSync = () => {
   return (
     <ProjectDescription

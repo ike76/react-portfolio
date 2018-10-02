@@ -61,10 +61,12 @@ export default class Resume extends Component {
                   <div>
                     <ul>
                       <li>
-                        Sang lead vocals, played guitar, and produced several
-                        records under our own label.
+                        Sang lead vocals, played guitar, and produced seven CDs
+                        under our own label.
                       </li>
-                      <li>Designed band website with Wordpress.</li>
+                      <li>
+                        Designed band website, including web store. (Wordpress)
+                      </li>
                     </ul>
                   </div>
                 }

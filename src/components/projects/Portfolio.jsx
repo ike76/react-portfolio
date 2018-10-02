@@ -12,25 +12,22 @@ const ProjectGrid = styled.div`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
-  > div {
-    // border: 1px grey solid;
-  }
 `;
 const ProjectBox = styled.div`
   padding: 1rem;
   display: flex;
   height: 200px;
   width: 200px;
-  background: radial-gradient(#00000000, #00000000), ${p => `url(${p.img})`};
+  background: radial-gradient(#000000dd, #000000aa), ${p => `url(${p.img})`};
   background-position: center;
   background-size: 110%;
   position: relative;
   align-items: center;
   justify-content: center;
   transition: 0.5s all;
-
+  cursor: pointer;
   & div {
-    opacity: 0;
+    opacity: 1;
   }
   &:hover {
     background: radial-gradient(#000000dd, #000000aa), ${p => `url(${p.img})`};
@@ -38,7 +35,6 @@ const ProjectBox = styled.div`
     background-size: 100%;
     & div {
       opacity: 1;
-      transform: scale(1.05);
     }
   }
 `;
@@ -53,12 +49,22 @@ const ProjectH1 = styled.h1`
   color: lightblue !important;
   margin-bottom: 10px !important;
 `;
+export const SkillsList = styled.ul`
+  list-style: none;
+  & li {
+    & i,
+    img {
+      margin-left: -1rem;
+      margin-right: 10px;
+    }
+  }
+`;
+
 export default class Portfolio extends Component {
   Project = ({ img, header, description }) => (
     <ProjectBox img={img} onClick={() => this.props.handleModal(header)}>
       <ProjectText>
         <ProjectH1>{header}</ProjectH1>
-        <Icon name="plus" size="big" />
         <div>{description}</div>
       </ProjectText>
     </ProjectBox>

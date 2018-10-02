@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ProjectDescription from "./ProjectDescription.jsx";
 import ScaleImage from "./projectImages/BuildBbScale.jpg";
-
+import { SkillsList } from "./Portfolio.jsx";
 const TwelveScales = () => {
   return (
     <ProjectDescription
@@ -23,6 +23,32 @@ const TwelveScales = () => {
             </li>
             <li>Each student's progress is tracked with Google Firestore.</li>
           </ul>
+          <h4>Skills:</h4>
+          <SkillsList>
+            <li>
+              <i className="devicon-react-original colored" />
+              <b>React</b>
+            </li>
+            <li>
+              <img
+                src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_96dp.png"
+                width="18px"
+              />
+              <b>Firebase</b>
+            </li>
+            <li>
+              <i className="devicon-html5-plain colored" />
+              <b>HTML</b>
+            </li>
+            <li>
+              <i className="devicon-css3-plain colored" />
+              <b>CSS</b>
+            </li>
+            <li>
+              <i className="devicon-javascript-plain colored" />
+              <b>JavaScript</b>
+            </li>
+          </SkillsList>
           <h4>Challenges:</h4>
           <ul>
             <li>Creating an interactive piano component from SVG images.</li>

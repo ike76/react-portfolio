@@ -1,18 +1,24 @@
 import React, { Component, Fragment } from "react";
-import { Popup } from "semantic-ui-react";
+import { Popup, Divider } from "semantic-ui-react";
 import ReactFitText from "react-fittext";
 
 import styled from "styled-components";
 import NavBar from "./NavBar";
 
-const HeaderCenter = styled.header`
-  height: calc(100vh - 20px);
+const FullWindowDiv = styled.div`
+  height: ${p => p.windowHeight}px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 `;
-const ResponsiveHeadline = styled.h1`
+const HeaderCenter = styled.header`
+  display: grid;
+  justify-items: center;
+`;
+const ResponsiveHeadline = styled.h2`
   font-size: 61px;
+  text-align: center;
+  color: red;
   width: 100%;
   font-family: "Open Sans", sans;
   color: white;
@@ -20,58 +26,65 @@ const ResponsiveHeadline = styled.h1`
 `;
 const HeaderList = styled.ul`
   list-style: none;
+  text-align: center;
+  color: #ffffff90;
   & li {
-    font-family: "Libre Baskerville", serif;
-    font-size: 21px;
+    font-size: 20px;
+    line-height: 2rem;
   }
   & .highlight {
-    color: #7cc8ff;
+    color: #3be9ff;
   }
+`;
+const SocialIcons = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+  font-size: 2rem;
+  padding: 0;
 `;
 export default class Header extends Component {
   render() {
+    const { windowHeight } = this.props;
     return (
       <Fragment>
-        <HeaderCenter>
-          <NavBar />
-          <div className="row banner">
-            <div className="banner-text">
-              <ReactFitText>
-                <ResponsiveHeadline>Brian Eichenberger</ResponsiveHeadline>
-              </ReactFitText>
-              <h3>
-                <HeaderList>
-                  <li className="highlight">Full Stack Web Developer.</li>
-                  <li>Designer</li>
-                  <li>Life Long Learner</li>
-                  <li>Singer</li>
-                  <li className="highlight">Creative Problem Solver</li>
-                </HeaderList>
-              </h3>
-              <hr />
-              <ul className="social">
-                {technologies.map(obj => (
-                  <li key={obj.deviconText}>
-                    <Popup
-                      key={obj.deviconText}
-                      trigger={
-                        <i
-                          className={`devicon-${obj.deviconText}`}
-                          style={{ color: "#dadada" }}
-                        />
-                      }
-                      content={obj.description}
-                      basic
-                      inverted
-                      position="bottom center"
-                      style={{ border: "1px grey solid" }}
-                    />
-                  </li>
-                ))}
-              </ul>
+        <NavBar />
+        <FullWindowDiv windowHeight={windowHeight}>
+          <HeaderCenter>
+            <ResponsiveHeadline>Brian Eichenberger</ResponsiveHeadline>
+            <HeaderList>
+              <li className="highlight">Full Stack Web Developer</li>
+              <li>Designer</li>
+              <li>Life Long Learner</li>
+              <li>Singer</li>
+              <li>Creative Problem Solver</li>
+            </HeaderList>
+            <div style={{ width: "80%" }}>
+              <Divider inverted />
             </div>
-          </div>
-        </HeaderCenter>
+            <SocialIcons>
+              {technologies.map(obj => (
+                <li key={obj.deviconText}>
+                  <Popup
+                    key={obj.deviconText}
+                    trigger={
+                      <i
+                        className={`devicon-${obj.deviconText}`}
+                        style={{ color: "#dadada" }}
+                      />
+                    }
+                    content={obj.description}
+                    basic
+                    inverted
+                    position="bottom center"
+                    style={{ border: "1px grey solid" }}
+                  />
+                </li>
+              ))}
+            </SocialIcons>
+          </HeaderCenter>
+        </FullWindowDiv>
       </Fragment>
     );
   }

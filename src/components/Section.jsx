@@ -5,7 +5,7 @@ import Waypoint from "react-waypoint";
 import styled from "styled-components";
 import { WaypointContext } from "../App";
 import { scrollTo } from "./header/NavBar.jsx";
-
+import BrianCrowd from "../images/brianCrowd1000.jpg";
 const regularStyles = `
   color: #202020;
 `;
@@ -13,16 +13,21 @@ const invertedStyles = `
   color: #FFFFFFd6;
 `;
 const concertBackground = `
-background: radial-gradient(#00000099,black);
+background: radial-gradient(#00000099,black), url(${BrianCrowd});
 background-size: cover;
 background-position: center;
+background-repeat: no-repeat;
+@media (min-width: 600px) {
+  background-attachment: fixed;
+}
 `;
 
 const SectionBox = styled.div`
+  position: relative;
   background: ${p => p.bgColor};
   ${p => (p.inverted ? invertedStyles : regularStyles)} position: relative;
   ${p => (p.id === "header" ? concertBackground : "")};
-  height: ${p => (p.id === "header" ? "100vh" : "")};
+  height: ${p => `${p.windowHeight}px` || ""};
   padding: 4rem 10px 5rem;
   & h1,
   h2,
@@ -61,7 +66,8 @@ const Section = ({
   sections,
   bgColor,
   inverted,
-  bgImage
+  bgImage,
+  windowHeight
 }) => {
   const nextSectionIndex = sections.findIndex(s => s === name) + 1;
   const nextSection = sections[nextSectionIndex];
@@ -80,9 +86,15 @@ const Section = ({
               wpExit(name);
             }}
           >
-            <SectionBox bgColor={bgColor} inverted={inverted} id={name}>
+            <SectionBox
+              bgColor={bgColor}
+              bgImage={bgImage}
+              windowHeight={windowHeight}
+              inverted={inverted}
+              id={name}
+            >
               <Container>{children}</Container>
-              {bgImage && (
+              {/* {bgImage && (
                 <div
                   style={{
                     position: "absolute",
@@ -105,7 +117,7 @@ const Section = ({
                     }}
                   />
                 </div>
-              )}
+              )} */}
               {nextSection && (
                 <ScrollDownDiv>
                   <Icon

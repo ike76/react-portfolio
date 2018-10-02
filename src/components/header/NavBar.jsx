@@ -21,9 +21,10 @@ const Astyled = styled.a`
 const NavBarStyled = styled.nav`
   position: fixed;
   top: 0px;
+  left: 0px;
   width: 100%;
   background: rgba(0, 0, 0, 0.87);
-
+  text-align: center;
   z-index: 10000;
 `;
 export const scrollTo = name => {
