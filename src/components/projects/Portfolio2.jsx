@@ -36,7 +36,8 @@ export const SkillsList = styled.div`
       ? `opacity: 1;
     transform: scale(1);`
       : ` opacity: .3;
-    transform: scale(.8);`} img.tech-image {
+    transform: scale(.9);`};
+  img.tech-image {
     max-width: 40px;
     max-height: 40px;
     margin-left: 1rem;
