@@ -62,7 +62,7 @@ export default class Header extends Component {
             <div style={{ width: "80%" }}>
               <Divider inverted />
             </div>
-            <SocialIcons>
+            {/* <SocialIcons>
               {technologies.map(obj => (
                 <li key={obj.deviconText}>
                   <Popup
@@ -81,7 +81,7 @@ export default class Header extends Component {
                   />
                 </li>
               ))}
-            </SocialIcons>
+            </SocialIcons> */}
           </HeaderCenter>
         </FullWindowDiv>
       </Fragment>
