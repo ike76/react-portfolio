@@ -18,7 +18,6 @@ export default class Contact extends Component {
       <Fragment>
         <h1>Contact</h1>
         <ContactDiv>
-          <h3>Brian Eichenberger</h3>
           <p>
             <Icon name="mail" /> brianeichenberger@me.com
           </p>

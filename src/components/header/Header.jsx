@@ -18,11 +18,10 @@ const HeaderCenter = styled.header`
 const ResponsiveHeadline = styled.h2`
   font-size: 48px;
   text-align: center;
-  color: red;
   width: 100%;
-  font-family: "Open Sans", sans;
-  color: white;
-  font-weight: 600;
+  font-family: "Open Sans", sans !important;
+  color: white !important;
+  font-weight: 600 !important;
 `;
 const HeaderList = styled.ul`
   list-style: none;

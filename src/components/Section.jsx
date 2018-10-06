@@ -22,7 +22,6 @@ background-repeat: no-repeat;
   background-attachment: fixed;
 }
 `;
-
 const wallBackground = `
 background: radial-gradient(#ffffff36,#ffffffd1), url(${wallBG});
 background-size: cover;
@@ -41,23 +40,23 @@ const SectionBox = styled.div`
   ${p => (p.id === "resume" ? wallBackground : "")};
   height: ${p => `${p.windowHeight}px` || ""};
   padding: 4rem 10px 5rem;
-  & h1,
+
+  h1,
   h2,
   h3 {
-    font-family: "Libre Franklin", sans-serif;
+    font-family: "Unica One", sans-serif;
     font-weight: lighter;
     letter-spacing: 1.5px;
+    color: #c31;
+    text-transform: uppercase;
   }
   h1 {
     text-align: center;
     text-transform: uppercase;
-    font-weight: lighter;
     font-size: 23px;
     letter-spacing: 4px;
     margin-bottom: 3rem;
     color: grey;
-  }
-  h3 {
   }
 `;
 const ScrollDownDiv = styled.div`

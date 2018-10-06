@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Waypoint from "react-waypoint";
 import styled from "styled-components";
 import { Image, Button, Popup, Divider } from "semantic-ui-react";
@@ -30,7 +30,7 @@ export const SkillsList = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   justify-content: center;
   justify-items: center;
-  transition: 1s all;
+  transition: 3s all;
   ${p =>
     p.active
       ? `opacity: 1;
@@ -56,12 +56,12 @@ const ProjectDisplayBox = styled.section`
       ? `box-shadow: 5px 4px 3px 0px #bdbdbda6;`
       : `box-shadow: 1px 1px 2px 0px #8888888a;`};
   img.project-image {
-    transition: 1s all;
+    transition: 3s all;
     @media (min-width: 701px) {
       ${p =>
         p.active
           ? `
-        transform: rotate(-5deg);
+        // transform: rotate(-5deg);
         opacity: 1;
         `
           : `
@@ -72,7 +72,7 @@ const ProjectDisplayBox = styled.section`
       top: 20px;
       left: -21px;
       border-radius: 3px;
-      box-shadow: 1px 1px 2px 0px #8888888a;
+      box-shadow: 2px 2px 8px 0px #a2a2a28a;
     }
     @media (max-width: 700px) {
       display: none !important;
@@ -91,6 +91,12 @@ const ProjectDisplayBox = styled.section`
   box-shadow: 1px 1px 5px #c3c3c3a6;
   padding: 8px;
   border-radius: 4px;
+  h2,
+  h3 {
+    letter-spacing: ${p => (p.active ? `1px` : `3px`)} !important;
+    transition: 4s letter-spacing;
+    /* letter-spacing: 8px; */
+  }
   h2 {
     margin: 5px auto 1rem;
     color: #3a8da9;
@@ -99,14 +105,12 @@ const ProjectDisplayBox = styled.section`
   h3 {
     color: #505050;
     font-weight: lighter;
-    letter-spacing: 1px;
     text-transform: uppercase;
   }
   .description {
     grid-area: description;
     transition: all 1s;
     opacity: ${p => (p.active ? "1" : ".5")};
-    /* max-height: 20rem; */
     padding: 1rem 5px;
   }
   .header {
@@ -120,36 +124,26 @@ const ProjectDisplayBox = styled.section`
   }
   .buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     transition: 1s all;
-    ${p =>
-      p.active
-        ? `
-     opacity: 1;
-     `
-        : `
-     transform: translateX(1rem);
-     opacity: .5;
-     `};
   }
 `;
 
 class ProjectDisplay extends Component {
   state = {
-    topIn: false,
-    bottomIn: false
+    in: false
   };
   render() {
     let { img, header, info, liveLink, githubLink } = this.props;
     const { description, challenges, techStack } = info;
-    const active = this.state.topIn && this.state.bottomIn;
+    const active = this.state.in;
     return (
       <ProjectDisplayBox active={active}>
         <Image src={img} alt="" size="small" className="project-image" />
         <div className="description">
           <header className="header">
-            <h2>{header.toUpperCase()}</h2>
+            <h2>{header}</h2>
             <div />
             <div className="buttons">
               <Button
@@ -166,25 +160,18 @@ class ProjectDisplay extends Component {
             </div>
           </header>
           <Divider />
+
+          {description}
           <Waypoint
             onEnter={() => {
-              this.setState({ topIn: true });
+              this.setState({ in: true });
             }}
             onLeave={() => {
-              this.setState({ topIn: false });
+              this.setState({ in: false });
             }}
           />
-          {description}
           <h3>Challenges:</h3>
           {challenges}
-          <Waypoint
-            onEnter={() => {
-              this.setState({ bottomIn: true });
-            }}
-            onLeave={() => {
-              this.setState({ bottomIn: false });
-            }}
-          />
 
           <h3>Tech Used:</h3>
           <SkillsList active={active}>
@@ -226,7 +213,12 @@ export default class Portfolio extends Component {
         />
         <ProjectDisplay
           img={house}
-          header="HomeComp"
+          header={
+            <Fragment>
+              <span style={{ fontWeight: 600 }}>HOME</span>
+              <span>COMP</span>
+            </Fragment>
+          }
           info={homeCompDescription}
           liveLink={"https://homecomp.netlify.com/"}
           githubLink={"https://github.com/ike76/home-comp"}
@@ -234,14 +226,24 @@ export default class Portfolio extends Component {
 
         <ProjectDisplay
           img={bizTravelers}
-          header="TripSync"
+          header={
+            <Fragment>
+              <span style={{ fontWeight: 600 }}>TRIP</span>
+              <span>SYNC</span>
+            </Fragment>
+          }
           info={tripSyncDescription}
           liveLink={"https://tripsync.herokuapp.com/"}
           githubLink={"https://github.com/ike76/TripSync"}
         />
         <ProjectDisplay
           img={airplanes}
-          header="FlightSync"
+          header={
+            <Fragment>
+              <span style={{ fontWeight: 600 }}>FLIGHT</span>
+              <span>SYNC</span>
+            </Fragment>
+          }
           info={flightSyncDesription}
           liveLink={"https://ike76.github.io/flightsync/"}
           githubLink={"https://github.com/ike76/flightsync"}

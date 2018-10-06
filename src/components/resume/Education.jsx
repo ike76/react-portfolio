@@ -25,7 +25,10 @@ const Education = () => {
               Learned how to persist user data with an Express / MongoDB back
               end.
             </p>
-            <p>Learned</p>
+            <p>
+              Learned how to use React to create more flexible, performant and
+              maintainable code.
+            </p>
 
             <p>Created a series of capstone projects:</p>
             <ol>

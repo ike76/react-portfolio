@@ -3,6 +3,7 @@ import { Grid, Divider } from "semantic-ui-react";
 import styled from "styled-components";
 import WorkItem from "./WorkItem";
 import SkillsBar from "./SkillsBar";
+import SkillsList from "./SkillsList";
 import Education from "./Education";
 
 const ResumeTitle = styled.h2`
@@ -79,7 +80,8 @@ export default class Resume extends Component {
               <ResumeTitle>Skills</ResumeTitle>
             </Grid.Column>
             <Grid.Column width={13}>
-              <SkillsBar />
+              {/* <SkillsBar /> */}
+              <SkillsList />
             </Grid.Column>
           </Grid.Row>
         </Grid>

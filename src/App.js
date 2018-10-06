@@ -6,6 +6,8 @@ import Portfolio2 from "./components/projects/Portfolio2.jsx";
 import Resume from "./components/resume/Resume.jsx";
 import Modal from "./components/modals/Modal.jsx";
 import Section from "./components/Section.jsx";
+import "./index.css";
+
 export const WaypointContext = createContext();
 
 class App extends Component {
