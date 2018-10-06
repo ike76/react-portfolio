@@ -44,7 +44,9 @@ const SectionBox = styled.div`
   & h1,
   h2,
   h3 {
-    font-family: Lato;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: lighter;
+    letter-spacing: 1.5px;
   }
   h1 {
     text-align: center;
@@ -54,6 +56,8 @@ const SectionBox = styled.div`
     letter-spacing: 4px;
     margin-bottom: 3rem;
     color: grey;
+  }
+  h3 {
   }
 `;
 const ScrollDownDiv = styled.div`

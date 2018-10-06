@@ -2,7 +2,7 @@ import React, { Component, Fragment, createContext } from "react";
 import About from "./components/about/About.jsx";
 import Contact from "./components/contact/Contact.jsx";
 import Header from "./components/header/Header.jsx";
-import Portfolio from "./components/projects/Portfolio.jsx";
+import Portfolio2 from "./components/projects/Portfolio2.jsx";
 import Resume from "./components/resume/Resume.jsx";
 import Modal from "./components/modals/Modal.jsx";
 import Section from "./components/Section.jsx";
@@ -31,7 +31,7 @@ class App extends Component {
       waypoint: newWpArray[0]
     });
   };
-  sections = ["header", "about", "resume", "portfolio", "contact"];
+  sections = ["header", "portfolio", "about", "resume", "contact"];
   render() {
     return (
       <div className="App">
@@ -58,6 +58,15 @@ class App extends Component {
             >
               <Header windowHeight={this.state.windowHeight} />
             </Section>
+
+            <Section
+              bgColor="#e6e6e6"
+              name="portfolio"
+              sections={this.sections}
+            >
+              <Portfolio2 handleModal={this.handleSetModal} />
+            </Section>
+
             <Section
               bgColor="#2b2b2b"
               name="about"
@@ -66,16 +75,11 @@ class App extends Component {
             >
               <About handleModal={this.handleSetModal} />
             </Section>
+
             <Section bgColor="#f6f6f6" name="resume" sections={this.sections}>
               <Resume />
             </Section>
-            <Section
-              bgColor="#e6e6e6"
-              name="portfolio"
-              sections={this.sections}
-            >
-              <Portfolio handleModal={this.handleSetModal} />
-            </Section>
+
             <Section
               bgColor="#2b2b2b"
               inverted

@@ -23,7 +23,6 @@ const FlightSync = () => {
             the best collective flying experience.
           </p>
           <h4>Skills:</h4>
-          <h4>Skills:</h4>
           <SkillsList>
             <li>
               <i className="devicon-html5-plain colored" />

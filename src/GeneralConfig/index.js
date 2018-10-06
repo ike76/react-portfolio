@@ -3,8 +3,8 @@
 
 export const sections = [
   { text: "Home", link: "#header", name: "header" },
+  { text: "Projects", link: "#portfolio", name: "portfolio" },
   { text: "About", link: "#about", name: "about" },
   { text: "Resume", link: "#resume", name: "resume" },
-  { text: "Projects", link: "#portfolio", name: "portfolio" },
   { text: "Contact", link: "#contact", name: "contact" }
 ];
