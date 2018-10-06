@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Waypoint from "react-waypoint";
 import styled from "styled-components";
 import { Image, Button, Popup, Divider } from "semantic-ui-react";
 import piano from "./projectImages/piano.jpg";
@@ -29,7 +30,13 @@ export const SkillsList = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   justify-content: center;
   justify-items: center;
-  img.tech-image {
+  transition: 1s all;
+  ${p =>
+    p.active
+      ? `opacity: 1;
+    transform: scale(1);`
+      : ` opacity: .3;
+    transform: scale(.8);`} img.tech-image {
     max-width: 40px;
     max-height: 40px;
     margin-left: 1rem;
@@ -43,12 +50,25 @@ const ProjectDisplayBox = styled.section`
   grid-template-areas: "pic header" "pic description";
   grid-template-columns: 150px 1fr max-content;
   grid-template-rows: max-content 1fr;
+  ${p =>
+    p.active
+      ? `box-shadow: 5px 4px 3px 0px #bdbdbda6;`
+      : `box-shadow: 1px 1px 2px 0px #8888888a;`};
   img.project-image {
+    transition: 1s all;
     @media (min-width: 701px) {
-      grid-area: pic;
+      ${p =>
+        p.active
+          ? `
+        transform: rotate(-5deg);
+        opacity: 1;
+        `
+          : `
+        transform: rotate(0deg) translateX(-1rem);
+        opacity: 0;
+        `} grid-area: pic;
       position: relative;
       top: 20px;
-      transform: rotate(-5deg);
       left: -21px;
       border-radius: 3px;
       box-shadow: 1px 1px 2px 0px #8888888a;
@@ -62,7 +82,11 @@ const ProjectDisplayBox = styled.section`
     grid-template-areas: "header" "description";
   }
   margin-bottom: 2rem;
-  background: #ffffffc2;
+  background: ${p => (p.active ? "#fff" : " #ffffff50")};
+  transition: 1s all;
+  /* :hover {
+    background: #fff;
+  } */
   box-shadow: 1px 1px 5px #c3c3c3a6;
   padding: 8px;
   border-radius: 4px;
@@ -79,12 +103,10 @@ const ProjectDisplayBox = styled.section`
   }
   .description {
     grid-area: description;
-    /* overflow: auto; */
-
+    transition: all 1s;
+    opacity: ${p => (p.active ? "1" : ".5")};
     /* max-height: 20rem; */
     padding: 1rem 5px;
-    @media (max-width: 700px) {
-    }
   }
   .header {
     grid-area: header;
@@ -98,55 +120,96 @@ const ProjectDisplayBox = styled.section`
   .buttons {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    transition: 1s all;
+    ${p =>
+      p.active
+        ? `
+     opacity: 1;
+     `
+        : `
+     transform: translateX(1rem);
+     opacity: .5;
+     `};
   }
 `;
 
-const ProjectDisplay = ({
-  img,
-  header,
-  description: { description, challenges, techStack }
-}) => (
-  <ProjectDisplayBox>
-    <Image src={img} alt="" size="small" className="project-image" />
-    <div className="description">
-      <header className="header">
-        <h2>{header.toUpperCase()}</h2>
-        <div />
-        <div className="buttons">
-          <Button
-            icon="github"
-            labelPosition="right"
-            size="small"
-            content="GitHub"
+class ProjectDisplay extends Component {
+  state = {
+    topIn: false,
+    bottomIn: false
+  };
+  render() {
+    let { img, header, info, liveLink, githubLink } = this.props;
+    const { description, challenges, techStack } = info;
+    const active = this.state.topIn && this.state.bottomIn;
+    return (
+      <ProjectDisplayBox active={active}>
+        <Image src={img} alt="" size="small" className="project-image" />
+        <div className="description">
+          <header className="header">
+            <h2>{header.toUpperCase()}</h2>
+            <div />
+            <div className="buttons">
+              <Button
+                icon="github"
+                labelPosition="right"
+                size="small"
+                content="GitHub"
+                href={githubLink}
+                target="_blank"
+              />
+              <Button primary size="small" href={liveLink} target="_blank">
+                Live
+              </Button>
+            </div>
+          </header>
+          <Divider />
+          <Waypoint
+            onEnter={() => {
+              this.setState({ topIn: true });
+            }}
+            onLeave={() => {
+              this.setState({ topIn: false });
+            }}
           />
-          <Button primary size="small">
-            Live
-          </Button>
+          {description}
+          <h3>Challenges:</h3>
+          {challenges}
+          <Waypoint
+            onEnter={() => {
+              this.setState({ bottomIn: true });
+            }}
+            onLeave={() => {
+              this.setState({ bottomIn: false });
+            }}
+          />
+
+          <h3>Tech Used:</h3>
+          <SkillsList active={active}>
+            {techStack.map(tech => (
+              <TechIconDiv>
+                <Popup
+                  basic
+                  size="tiny"
+                  trigger={
+                    <img
+                      src={techImgs[tech]}
+                      alt={tech}
+                      className="tech-image"
+                    />
+                  }
+                  content={tech}
+                  position="bottom center"
+                />
+              </TechIconDiv>
+            ))}
+          </SkillsList>
         </div>
-      </header>
-      <Divider />
-      {description}
-      <h3>Challenges:</h3>
-      {challenges}
-      <h3>Tech Used:</h3>
-      <SkillsList>
-        {techStack.map(tech => (
-          <TechIconDiv>
-            <Popup
-              basic
-              size="tiny"
-              trigger={
-                <img src={techImgs[tech]} alt={tech} className="tech-image" />
-              }
-              content={tech}
-              position="bottom center"
-            />
-          </TechIconDiv>
-        ))}
-      </SkillsList>
-    </div>
-  </ProjectDisplayBox>
-);
+      </ProjectDisplayBox>
+    );
+  }
+}
 
 export default class Portfolio extends Component {
   render() {
@@ -156,24 +219,31 @@ export default class Portfolio extends Component {
         <ProjectDisplay
           img={piano}
           header="12 Scales"
-          description={twelveScalesDescription}
+          info={twelveScalesDescription}
+          liveLink={"http://www.12scales.com"}
+          githubLink={"https://github.com/ike76/scales-12"}
         />
         <ProjectDisplay
           img={house}
           header="HomeComp"
-          description={homeCompDescription}
+          info={homeCompDescription}
+          liveLink={"https://homecomp.netlify.com/"}
+          githubLink={"https://github.com/ike76/home-comp"}
         />
+
         <ProjectDisplay
           img={bizTravelers}
           header="TripSync"
-          description={tripSyncDescription}
+          info={tripSyncDescription}
           liveLink={"https://tripsync.herokuapp.com/"}
           githubLink={"https://github.com/ike76/TripSync"}
         />
         <ProjectDisplay
           img={airplanes}
           header="FlightSync"
-          description={flightSyncDesription}
+          info={flightSyncDesription}
+          liveLink={"https://ike76.github.io/flightsync/"}
+          githubLink={"https://github.com/ike76/flightsync"}
         />
       </section>
     );
@@ -300,9 +370,10 @@ const flightSyncDesription = {
   challenges: (
     <ul>
       <li>
-        Sorting out the object / massaging the data returned from the
-        flight-search API.
+        Massaging & sorting out the data object returned from the flight-search
+        API.
       </li>
+      <li>Learning ChartJS to display flight results on a grid.</li>
     </ul>
   ),
   techStack: ["HTML", "CSS", "JavaScript"]
