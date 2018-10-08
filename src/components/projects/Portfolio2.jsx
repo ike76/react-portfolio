@@ -236,18 +236,6 @@ export default class Portfolio extends Component {
           liveLink={"https://tripsync.herokuapp.com/"}
           githubLink={"https://github.com/ike76/TripSync"}
         />
-        <ProjectDisplay
-          img={airplanes}
-          header={
-            <Fragment>
-              <span style={{ fontWeight: 600 }}>FLIGHT</span>
-              <span>SYNC</span>
-            </Fragment>
-          }
-          info={flightSyncDesription}
-          liveLink={"https://ike76.github.io/flightsync/"}
-          githubLink={"https://github.com/ike76/flightsync"}
-        />
       </section>
     );
   }

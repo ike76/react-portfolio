@@ -4,7 +4,6 @@ import Contact from "./components/contact/Contact.jsx";
 import Header from "./components/header/Header.jsx";
 import Portfolio2 from "./components/projects/Portfolio2.jsx";
 import Resume from "./components/resume/Resume.jsx";
-import Modal from "./components/modals/Modal.jsx";
 import Section from "./components/Section.jsx";
 import "./index.css";
 
@@ -46,11 +45,6 @@ class App extends Component {
           }}
         >
           <Fragment>
-            <Modal
-              content={this.state.modal}
-              onClose={() => this.setState({ modal: null })}
-            />
-
             <Section
               bgColor="#161415"
               name="header"
