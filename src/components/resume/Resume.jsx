@@ -60,13 +60,27 @@ export default class Resume extends Component {
                 dates="July 1996 - December 2014"
                 content={
                   <div>
+                    <p>
+                      I wore many hats during my tenure with The Four Freshmen.
+                      In addition to singing lead and playing guitar for several
+                      US and international tours, I handled a lot of the
+                      management duties as well.
+                    </p>
                     <ul>
                       <li>
-                        Sang lead vocals, played guitar, and produced seven CDs
-                        under our own label.
+                        Graphic Design, concepts, layout for seven CD releases.
                       </li>
                       <li>
-                        Designed band website, including web store. (Wordpress)
+                        Created and maintained Wordpress website with web store.
+                      </li>
+                      <li>
+                        Handled air and ground logistics for 100+ tour dates /
+                        year. (flights, cars, hotels)
+                      </li>
+                      <li>
+                        Founded <em>Fresh Records</em>, our own record label.
+                        (Mechanical royalty clearances, distribution, iTunes,
+                        etc)
                       </li>
                     </ul>
                   </div>
