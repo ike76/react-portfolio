@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { scrollTo } from "../header/NavBar.jsx";
 import { WaypointContext } from "../../App";
 const ProjectDescription = styled.div`
   margin-left: 1rem;
+  a {
+    cursor: pointer;
+  }
 `;
 
 const Education = () => {
@@ -35,11 +39,8 @@ const Education = () => {
               <li>
                 <em>Front-end only leverage a public API</em>.
                 <ProjectDescription>
-                  <a onClick={() => values.setModal("FlightSync")}>
-                    FlightSync
-                  </a>
-                  - a tool to search flights from multiple locations, all
-                  arriving at the same location at the same time of day.
+                  FlightSync - a tool to search flights from multiple locations,
+                  all arriving at the same location at the same time of day.
                 </ProjectDescription>
               </li>
               <li>
@@ -49,7 +50,7 @@ const Education = () => {
                 </em>
                 .
                 <ProjectDescription>
-                  <a onClick={() => values.setModal("TripSync")}>TripSync</a>- a
+                  <a onClick={() => scrollTo("tripsync", -50)}>TripSync</a>- a
                   tool for a tour manager to keep track of where everyone is at
                   a given time, and how everyone gets from A to B.
                 </ProjectDescription>
@@ -57,8 +58,8 @@ const Education = () => {
               <li>
                 <em>Front-end in React, back-end with MongoDB/Node.</em>{" "}
                 <ProjectDescription>
-                  <a onClick={() => values.setModal("HomeComp")}>HomeComp</a> -
-                  a tool to help home buyers keep track of their favorites.
+                  <a onClick={() => scrollTo("homecomp", -50)}>HomeComp</a> - a
+                  tool to help home buyers keep track of their favorites.
                 </ProjectDescription>
               </li>
             </ol>
