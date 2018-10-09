@@ -176,7 +176,7 @@ class ProjectDisplay extends Component {
           <h3>Tech Used:</h3>
           <SkillsList active={active}>
             {techStack.map(tech => (
-              <TechIconDiv>
+              <TechIconDiv key={tech}>
                 <Popup
                   basic
                   size="tiny"

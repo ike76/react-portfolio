@@ -32,7 +32,6 @@ const SkillDiv = styled.div`
   }
 `;
 const SkillsList = () => {
-  console.log(basicSkills);
   return (
     <section>
       {allSkills.map(skill => (

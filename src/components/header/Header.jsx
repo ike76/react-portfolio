@@ -22,8 +22,11 @@ const ResponsiveHeadline = styled.h2`
   font-family: "Open Sans", sans !important;
   color: white !important;
   font-weight: 600 !important;
+  @media (max-width: 600px) {
+    font-size: 30px;
+  }
 `;
-const HeaderList = styled.ul`
+const HeaderList = styled.div`
   list-style: none;
   text-align: center;
   color: #ffffff90;
