@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
 import Waypoint from "react-waypoint";
 import styled from "styled-components";
+import { Element } from "react-scroll";
 import { Image, Button, Popup, Divider } from "semantic-ui-react";
 import piano from "./projectImages/piano.jpg";
 import house from "./projectImages/house.jpg";
-import airplanes from "./projectImages/airplanes.jpg";
 import bizTravelers from "../../images/bizTravelers.jpg";
 import {
   css3,
@@ -135,11 +135,12 @@ class ProjectDisplay extends Component {
     in: false
   };
   render() {
-    let { img, header, info, liveLink, githubLink } = this.props;
+    let { img, header, info, liveLink, githubLink, id } = this.props;
     const { description, challenges, techStack } = info;
     const active = this.state.in;
     return (
       <ProjectDisplayBox active={active}>
+        <Element name={id} />
         <Image src={img} alt="" size="small" className="project-image" />
         <div className="description">
           <header className="header">
@@ -210,6 +211,7 @@ export default class Portfolio extends Component {
           info={twelveScalesDescription}
           liveLink={"http://www.12scales.com"}
           githubLink={"https://github.com/ike76/scales-12"}
+          id={"twelvescales"}
         />
         <ProjectDisplay
           img={house}
@@ -222,6 +224,7 @@ export default class Portfolio extends Component {
           info={homeCompDescription}
           liveLink={"https://homecomp.netlify.com/"}
           githubLink={"https://github.com/ike76/home-comp"}
+          id={"homecomp"}
         />
 
         <ProjectDisplay
@@ -235,6 +238,7 @@ export default class Portfolio extends Component {
           info={tripSyncDescription}
           liveLink={"https://tripsync.herokuapp.com/"}
           githubLink={"https://github.com/ike76/TripSync"}
+          id={"tripsync"}
         />
       </section>
     );

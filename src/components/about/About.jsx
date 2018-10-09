@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import BrianPic from "../../images/BrianEichenbergerBeachBoys.jpg";
 import styled from "styled-components";
-
+import { scrollTo } from "../header/NavBar.jsx";
 const AboutDiv = styled.section`
   // padding: 3rem 3rem 7rem;
   align-items: center;
+  a {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
 `;
 const ImageDiv = styled.div`
   display: flex;
@@ -68,15 +73,18 @@ export default class About extends Component {
           's full-time full-stack JavaScript course and never looked back.
         </p>
         <p>
-          Now I'm building the web apps I always wished for: An app to{" "}
-          <a onClick={() => handleModal("FlightSync")}>
-            search flights for a group
-          </a>
-          , an app to{" "}
-          <a onClick={() => handleModal("TripSync")}>manage group travel</a>,
+          Now I'm building the web apps I always wished for: An app to search
+          flights for a group, an app to{" "}
+          <a onClick={() => scrollTo("tripsync", -50)}>manage group travel</a>,
           and most recently, an app that helps beginner piano students{" "}
-          <a onClick={() => handleModal("12 Scales")}>learn Major Scales</a> in
-          a fraction of the time it took me to learn them in school.
+          <a onClick={() => scrollTo("twelvescales", -50)}>
+            learn Major Scales
+          </a>{" "}
+          in a fraction of the time it took me to learn them in school.
+        </p>
+        <p>
+          I'm always on the look out for interesting projects to which I can
+          contribute.
         </p>
         <div style={{ clear: "both" }} />
       </AboutDiv>

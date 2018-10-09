@@ -27,14 +27,13 @@ const NavBarStyled = styled.nav`
   text-align: center;
   z-index: 10000;
 `;
-export const scrollTo = name => {
+export const scrollTo = (name, offset) => {
   console.log("name", name);
   scroller.scrollTo(name, {
     duration: 800,
     delay: 0,
     smooth: true,
-    // containerId: "ContainerElementID",
-    offset: 0 // Scrolls to element + 50 pixels down the page
+    offset: offset || 0
   });
 };
 const NavBar = () => {
