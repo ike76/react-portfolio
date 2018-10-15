@@ -314,18 +314,27 @@ const tripSyncDescription = {
   description: (
     <section>
       <p>
-        Group travel can become complicated and difficult to manage when
-        travelers' itineraries weave in and out of eachother.
+        I created TRIPSYNC as a "capstone" project as a part of the{" "}
+        <em>Thinkful</em> curriculum.
       </p>
       <p>
-        For example, <em>when two people</em> share a taxi to the airport, while{" "}
-        <em>three</em> others take trains from separate stations, then{" "}
-        <em>all five</em> take the same flight, but stay in different hotels etc
-        etc.
+        The idea is to simplify group travel plans. When you book travel for
+        multiple people, they often share most of the itinerary. Still, there
+        are anomalies:
       </p>
+      <ul>
+        <li>Some people take an uber instead of the group shuttle.</li>
+        <li>
+          One person stays an extra few days, flying home later than the group.
+        </li>
+        <li>
+          Some take different airlines to the same destination, coordinating
+          with their frequent flyer awards, etc.
+        </li>
+      </ul>
       <p>
-        <b>TripSync</b> helps manage the complexity of multiple criss-crossing
-        itineraries.
+        I designed <b>TripSync</b> to help manage the complexity of multiple
+        criss-crossing itineraries.
       </p>
       <ul>
         <li>Easily add or remove travelers to each leg of the itinerary.</li>
@@ -335,11 +344,8 @@ const tripSyncDescription = {
   ),
   challenges: (
     <ul>
-      <li>
-        Vanilla JavaScript (no front-end framework): Updating info became
-        difficult to manage as interactions between models became more
-        complicated.
-      </li>
+      <li>Vanilla JavaScript (no front-end framework).</li>
+      <li>Multiple models and connected interactions.</li>
     </ul>
   ),
   techStack: ["NodeJS", "Express", "MongoDB", "HTML", "CSS", "JavaScript"]
