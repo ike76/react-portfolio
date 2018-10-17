@@ -31,7 +31,7 @@ export default class Contact extends Component {
             <SocialIcon network="email" url="mailto:brianeichenberger@me.com" />
             <SocialIcon url="https://twitter.com/brianeichen" />
             <SocialIcon url="https://www.facebook.com/brian.eichenberger" />
-            <SocialIcon url="https://linkedin.com/in/brian-eichenberger-5bb9547a" />
+            <SocialIcon url="https://www.linkedin.com/in/brianeichenberger/" />
             <SocialIcon url="https://github.com/ike76" />
           </SocIcons>
         </ContactDiv>
