@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   css3,
   express,
@@ -15,9 +15,9 @@ import {
   illustrator,
   sketch,
   graphql
-} from "../../images/techIcons/index";
-import { Popup, Divider } from "semantic-ui-react";
-import styled from "styled-components";
+} from "../../images/techIcons/index"
+import { Popup, Divider } from "semantic-ui-react"
+import styled from "styled-components"
 const SkillDiv = styled.div`
   .icons {
     display: flex;
@@ -30,7 +30,7 @@ const SkillDiv = styled.div`
       }
     }
   }
-`;
+`
 const SkillsList = () => {
   return (
     <section>
@@ -54,35 +54,35 @@ const SkillsList = () => {
         </SkillDiv>
       ))}
     </section>
-  );
-};
+  )
+}
 
-export default SkillsList;
+export default SkillsList
 
 const skillsImgs = [
+  { name: "React", category: "front", img: react },
+  { name: "Redux", category: "front", img: redux },
   { name: "CSS", category: "front", img: css3 },
   { name: "JavaScript", category: "front", img: javascript },
   { name: "HTML", category: "front", img: html },
   { name: "jQuery", category: "front", img: jquery },
-  { name: "React", category: "front", img: react },
-  { name: "Redux", category: "front", img: redux },
   { name: "Node", category: "back", img: node },
   { name: "Express", category: "back", img: express },
+  { name: "GraphQL", category: "back", img: graphql },
   { name: "MongoDB", category: "back", img: mongo },
   { name: "Firebase", category: "back", img: firestore },
-  { name: "GraphQL", category: "back", img: graphql },
   { name: "Sketch", category: "graphic", img: sketch },
   { name: "Photoshop", category: "graphic", img: photoshop },
   { name: "InDesign", category: "graphic", img: indesign },
   { name: "Illustrator", category: "graphic", img: illustrator }
-];
-const backSkills = skillsImgs.filter(s => s.category === "back");
-const frontSkills = skillsImgs.filter(s => s.category === "front");
-const basicSkills = skillsImgs.filter(s => s.category === "basic");
-const graphicSkills = skillsImgs.filter(s => s.category === "graphic");
+]
+const backSkills = skillsImgs.filter(s => s.category === "back")
+const frontSkills = skillsImgs.filter(s => s.category === "front")
+const basicSkills = skillsImgs.filter(s => s.category === "basic")
+const graphicSkills = skillsImgs.filter(s => s.category === "graphic")
 
 const allSkills = [
   ["Front End", frontSkills],
   ["Back End", backSkills],
   ["Graphic Design", graphicSkills]
-];
+]
