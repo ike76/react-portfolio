@@ -1,15 +1,15 @@
-import React, { Component, Fragment } from "react";
-import { Grid, Divider } from "semantic-ui-react";
-import styled from "styled-components";
-import WorkItem from "./WorkItem";
-import SkillsBar from "./SkillsBar";
-import SkillsList from "./SkillsList";
-import Education from "./Education";
+import React, { Component, Fragment } from "react"
+import { Grid, Divider } from "semantic-ui-react"
+import styled from "styled-components"
+import WorkItem from "./WorkItem"
+import SkillsBar from "./SkillsBar"
+import SkillsList from "./SkillsList"
+import Education from "./Education"
 
 const ResumeTitle = styled.h2`
   border-bottom: 3px solid #11abb0;
   padding-bottom: 6px;
-`;
+`
 export default class Resume extends Component {
   render() {
     return (
@@ -32,8 +32,8 @@ export default class Resume extends Component {
             <Grid.Column width={13}>
               <WorkItem
                 company="The Beach Boys"
-                jobTitle="Vocals, Bass, Graphic Design"
-                dates="March 2015 - January 2018"
+                jobTitle="Vocals, Guitar, Graphic Design"
+                dates="March 2015 - current"
                 content={
                   <div>
                     <ul>
@@ -100,6 +100,6 @@ export default class Resume extends Component {
           </Grid.Row>
         </Grid>
       </Fragment>
-    );
+    )
   }
 }

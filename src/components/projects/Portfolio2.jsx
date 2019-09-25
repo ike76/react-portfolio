@@ -1,11 +1,12 @@
-import React, { Component, Fragment } from "react";
-import Waypoint from "react-waypoint";
-import styled from "styled-components";
-import { Element } from "react-scroll";
-import { Image, Button, Popup, Divider } from "semantic-ui-react";
-import piano from "./projectImages/piano.jpg";
-import house from "./projectImages/house.jpg";
-import bizTravelers from "../../images/bizTravelers.jpg";
+import React, { Component, Fragment } from "react"
+import Waypoint from "react-waypoint"
+import styled from "styled-components"
+import { Element } from "react-scroll"
+import { Image, Button, Popup, Divider } from "semantic-ui-react"
+import piano from "./projectImages/piano.jpg"
+import house from "./projectImages/house.jpg"
+import head from "./projectImages/head.png"
+import bizTravelers from "../../images/bizTravelers.jpg"
 import {
   css3,
   express,
@@ -17,14 +18,14 @@ import {
   redux,
   firestore,
   javascript
-} from "../../images/techIcons/index";
+} from "../../images/techIcons/index"
 
 const TechIconDiv = styled.div`
   transition: 0.5s all;
   :hover {
     transform: scale(1.1);
   }
-`;
+`
 export const SkillsList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
@@ -42,7 +43,7 @@ export const SkillsList = styled.div`
     max-height: 40px;
     margin-left: 1rem;
   }
-`;
+`
 
 const ProjectDisplayBox = styled.section`
   display: grid;
@@ -128,16 +129,16 @@ const ProjectDisplayBox = styled.section`
     align-items: center;
     transition: 1s all;
   }
-`;
+`
 
 class ProjectDisplay extends Component {
   state = {
     in: false
-  };
+  }
   render() {
-    let { img, header, info, liveLink, githubLink, id } = this.props;
-    const { description, challenges, techStack } = info;
-    const active = this.state.in;
+    let { img, header, info, liveLink, githubLink, id } = this.props
+    const { description, challenges, techStack } = info
+    const active = this.state.in
     return (
       <ProjectDisplayBox active={active}>
         <Element name={id} />
@@ -165,10 +166,10 @@ class ProjectDisplay extends Component {
           {description}
           <Waypoint
             onEnter={() => {
-              this.setState({ in: true });
+              this.setState({ in: true })
             }}
             onLeave={() => {
-              this.setState({ in: false });
+              this.setState({ in: false })
             }}
           />
           <h3>Challenges:</h3>
@@ -196,7 +197,7 @@ class ProjectDisplay extends Component {
           </SkillsList>
         </div>
       </ProjectDisplayBox>
-    );
+    )
   }
 }
 
@@ -205,6 +206,14 @@ export default class Portfolio extends Component {
     return (
       <section>
         <h1>Projects</h1>
+        <ProjectDisplay
+          img={head}
+          header="MEMOGA.ME"
+          info={memogameDescription}
+          liveLink={"http://www.memoga.me"}
+          githubLink={"https://github.com/iketown/memogame"}
+          id={"memogame"}
+        />
         <ProjectDisplay
           img={piano}
           header="12 Scales"
@@ -241,8 +250,46 @@ export default class Portfolio extends Component {
           id={"tripsync"}
         />
       </section>
-    );
+    )
   }
+}
+
+const memogameDescription = {
+  description: (
+    <section>
+      <p>
+        I invented MEMOGA.ME as I was thinking about the concept of the "Memory
+        Palace" as described in{" "}
+        <a
+          href="https://www.amazon.com/Moonwalking-Einstein-Science-Remembering-Everything/dp/0143120530"
+          target="new"
+        >
+          Moonwalking With Einstein
+        </a>
+        . I wanted to create a game where the player has to <em>remember</em> a
+        growing list of their cards, and integrate their ability to remember
+        those locations as a key part of the game.
+      </p>
+      <ul>
+        <li>Game logic is handled on the front end</li>
+        <li>Game state is synchronized using Google Firestore and Firebase.</li>
+        <li>extensive use of React.Context and hooks features.</li>
+        <li>
+          a 3-minute video overview of the game is{" "}
+          <a href="https://www.youtube.com/watch?v=eikx_TcBY7k" target="blank">
+            HERE
+          </a>
+        </li>
+      </ul>
+    </section>
+  ),
+  challenges: (
+    <ul>
+      <li>Drag and Drop between different contexts.</li>
+      <li>Multiple data listeners creating complex global state.</li>
+    </ul>
+  ),
+  techStack: ["React", "Firestore", "HTML", "CSS"]
 }
 
 const twelveScalesDescription = {
@@ -270,7 +317,7 @@ const twelveScalesDescription = {
     </ul>
   ),
   techStack: ["React", "Redux", "Firestore", "HTML", "CSS"]
-};
+}
 
 const homeCompDescription = {
   description: (
@@ -308,7 +355,7 @@ const homeCompDescription = {
     </ul>
   ),
   techStack: ["React", "Redux", "NodeJS", "Express", "MongoDB", "HTML", "CSS"]
-};
+}
 
 const tripSyncDescription = {
   description: (
@@ -349,7 +396,7 @@ const tripSyncDescription = {
     </ul>
   ),
   techStack: ["NodeJS", "Express", "MongoDB", "HTML", "CSS", "JavaScript"]
-};
+}
 const flightSyncDesription = {
   description: (
     <section>
@@ -378,7 +425,7 @@ const flightSyncDesription = {
     </ul>
   ),
   techStack: ["HTML", "CSS", "JavaScript"]
-};
+}
 
 const techImgs = {
   HTML: html,
@@ -391,4 +438,4 @@ const techImgs = {
   Redux: redux,
   Firestore: firestore,
   JavaScript: javascript
-};
+}
